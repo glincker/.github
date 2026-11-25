@@ -7,13 +7,13 @@
   "stars": 3045
  },
  "repos": {
-  "thesvg": {
-   "stars": 3045,
-   "lang": "TypeScript"
-  },
   ".github": {
    "stars": 1,
    "lang": ""
+  },
+  "thesvg": {
+   "stars": 3045,
+   "lang": "TypeScript"
   },
   "levelrail": {
    "stars": 239,

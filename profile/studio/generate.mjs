@@ -54,7 +54,7 @@ const write = (name, svg) => {
 const logoCache = {};
 const logo = (file) => {
   if (!logoCache[file]) {
-    const raw = readFileSync(here(`./logos/${file}.svg`), "utf8");
+    const raw = readFileSync(here(`./logos/${file}.svg`), "utf8").replace(/<!--[\s\S]*?-->/g, "");
     const head = raw.match(/<svg([^>]*)>/)[1];
     const vb = head.match(/viewBox="([^"]+)"/)[1];
     const attrs = head.replace(/(^|\s)(xmlns|viewBox|width|height)="[^"]*"/g, "$1").trim();
@@ -270,7 +270,7 @@ const projects = config.projects;
 for (const row of config.rows) {
   for (const [name, frac] of row) {
     const p = projects.find((x) => x.name === name);
-    p.desc = p.desc.replace(/[–—]/g, ",");
+    p.desc = p.desc.replace(/[\u2013\u2014]/g, ",");
     if (p.desc.length > 90) console.warn(`${name} description is ${p.desc.length} chars`);
     write(`tile-${name}`, tile(p, frac, false));
     write(`tile-${name}-mobile`, tile(p, frac, true));
