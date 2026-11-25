@@ -85,7 +85,9 @@ const logoAt = (spec, x, y, size, pfx) => {
     return `<image href="data:image/png;base64,${b64}" x="${x}" y="${y}" width="${size}" height="${size}"/>`;
   }
   const l = logo(file);
-  const ids = (s) => s.replace(/\bid="([^"]+)"/g, `id="${pfx}$1"`).replace(/url\(#([^)]+)\)/g, `url(#${pfx}$1)`).replace(/href="#/g, `href="#${pfx}`);
+  const ids = (s) => s.replace(/\bid="([^"]+)"/g, `id="${pfx}$1"`).replace(/url\(#([^)]+)\)/g, `url(#${pfx}$1)`).replace(/href="#/g, `href="#${pfx}`)
+    .replace(/\bclass="([^"]+)"/g, (_, c) => `class="${c.split(" ").map((k) => pfx + k).join(" ")}"`)
+    .replace(/<style>([\s\S]*?)<\/style>/g, (_, css) => `<style>${css.replace(/\.([A-Za-z_][\w-]*)/g, `.${pfx}$1`)}</style>`);
   return `<svg x="${x}" y="${y}" width="${size}" height="${size}" viewBox="${l.vb}" ${ids(l.attrs)}>${ids(l.inner.replace(/\sstyle="[^"]*"/g, ""))}</svg>`;
 };
 // A white well keeps full-colour logos readable on both themes.
@@ -93,7 +95,7 @@ const well = (file, x, y, size, pfx, t) => {
   const pad = size >= 40 ? 6 : size * 0.15;
   return `<rect x="${x + .5}" y="${y + .5}" width="${size - 1}" height="${size - 1}" rx="${size >= 40 ? 10 : 8}" fill="#fff" stroke="${t.well}" stroke-opacity="${t.wellA}"/>${logoAt(file, x + pad, y + pad, size - 2 * pad, pfx)}`;
 };
-const LANG = { TypeScript: "typescript", Go: "go", Rust: "rust", Python: "python", Ruby: "ruby", JavaScript: "javascript", Shell: "shell", MDX: "mdx" };
+const LANG = { TypeScript: "typescript", Go: "go", Rust: "rust", Python: "python", Ruby: "ruby", JavaScript: "javascript", MDX: "mdx" };
 const langChip = (lang, x, y, size, pfx, t) => (LANG[lang] ? well(`${LANG[lang]}-${lang === "Go" ? "light" : "default"}`, x, y, size, pfx, t) : "");
 
 // ---------- hero: wordmark, tagline, numbers line and a static strip of product logos ----------
@@ -120,7 +122,7 @@ function hero(mode, mobile) {
   const strip = items.map((file, i) => well(file, sx + i * (size + gap), sy, size, `hp${i}`, t)).join("");
   const cap = `<text x="${mobile ? sx + stripW + 12 : sx}" y="${mobile ? sy + size / 2 + 3 : sy - 14}" font-family="${MONO}" font-weight="600" font-size="${mobile ? 8.5 : 11}" letter-spacing="${mobile ? 1 : 1.6}" fill="${t.mute}">OUR PRODUCTS</text>`;
   const defs = `<clipPath id="hclip"><rect width="${W}" height="${H}" rx="${r}"/></clipPath>`;
-  const body = `<g clip-path="url(#hclip)"><rect width="${W}" height="${H}" fill="${t.card}"/><rect x="${x0}" width="${mobile ? 20 : 28}" height="3" fill="${ACCENT}"/><svg x="${x0}" y="${wmY}" width="${wmW}" height="${wmH.toFixed(1)}" viewBox="${wm.vb}">${wm.inner}</svg>${text}${cap}${strip}</g>${edge(W, H, r, t)}`;
+  const body = `<g clip-path="url(#hclip)"><rect width="${W}" height="${H}" fill="${t.card}"/>${mobile ? "" : `<rect x="14" y="14" width="3" height="14" rx="1.5" fill="${ACCENT}"/>`}<svg x="${x0}" y="${wmY}" width="${wmW}" height="${wmH.toFixed(1)}" viewBox="${wm.vb}">${wm.inner}</svg>${text}${cap}${strip}</g>${edge(W, H, r, t)}`;
   return wrap(W, H, `GLINR Studios, open source developer tools. ${data.stars} GitHub stars across ${data.count} public repositories, top repository ${data.top.name} with ${data.top.stars}. Products: Levelrail, theSVG, theAuth, Stacklit, featuredrop, glinui`, body, defs);
 }
 
