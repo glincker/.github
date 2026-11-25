@@ -43,9 +43,23 @@ try {
 }
 const stat = (name) => data.repos[name] ?? { stars: 0, lang: "" };
 
+// ---------- alt text, shared by the README images and the SVG title and desc ----------
+const lowerFirst = (x) => x.charAt(0).toLowerCase() + x.slice(1);
+const plural = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
+const tileStars = (p) => (p.repos ? p.repos.reduce((a, r) => a + stat(r).stars, 0) : stat(p.name).stars);
+const altHero = `GLINR Studios logo. Open source developer tools by GLINR Studios, ${plural(data.count, "public repository").replace("repositorys", "repositories")} and ${data.stars.toLocaleString("en-US")} GitHub stars`;
+const altHeader = (s) => `${s.title}, ${lowerFirst(s.line)}`;
+const MORE = { id: "more", title: "More from GLINR Studios", line: "Developer tools, libraries, curated lists, research and community" };
+const altTile = (p) => {
+  const lang = p.logos || p.name === "ecosystem" ? "" : stat(p.name).lang;
+  const base = `${p.name}, GLINR Studios open source repository on GitHub. ${p.desc.replace(/\.$/, "")}.`;
+  return `${base}${lang ? ` ${lang} project with ${plural(tileStars(p), "GitHub star")}.` : ` ${plural(tileStars(p), "GitHub star")}.`}`;
+};
+const altFooter = "Made by the GLINR Studios team, glinr.com";
+
 // ---------- shared svg helpers ----------
 const wrap = (w, h, alt, body, defs = "", extraCss = "") =>
-  `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(alt)}"><defs><style>${extraCss}text{font-kerning:normal}</style>${defs}</defs>${body}</svg>`;
+  `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" role="img" aria-label="${esc(alt)}"><title>${esc(alt)}</title><desc>${esc(alt)}</desc><defs><style>${extraCss}text{font-kerning:normal}</style>${defs}</defs>${body}</svg>`;
 const write = (name, svg) => {
   writeFileSync(`${OUT}/${name}.svg`, svg);
   if (svg.length > 60000) console.warn(`${name}.svg is ${svg.length} bytes`);
@@ -123,27 +137,27 @@ function hero(mode, mobile) {
   const cap = `<text x="${mobile ? sx + stripW + 12 : sx}" y="${mobile ? sy + size / 2 + 3 : sy - 14}" font-family="${MONO}" font-weight="600" font-size="${mobile ? 8.5 : 11}" letter-spacing="${mobile ? 1 : 1.6}" fill="${t.mute}">OUR PRODUCTS</text>`;
   const defs = `<clipPath id="hclip"><rect width="${W}" height="${H}" rx="${r}"/></clipPath>`;
   const body = `<g clip-path="url(#hclip)"><rect width="${W}" height="${H}" fill="${t.card}"/>${mobile ? "" : `<rect x="14" y="14" width="3" height="14" rx="1.5" fill="${ACCENT}"/>`}<svg x="${x0}" y="${wmY}" width="${wmW}" height="${wmH.toFixed(1)}" viewBox="${wm.vb}">${wm.inner}</svg>${text}${cap}${strip}</g>${edge(W, H, r, t)}`;
-  return wrap(W, H, `GLINR Studios, open source developer tools. ${data.stars} GitHub stars across ${data.count} public repositories, top repository ${data.top.name} with ${data.top.stars}. Products: Levelrail, theSVG, theAuth, Stacklit, featuredrop, glinui`, body, defs);
+  return wrap(W, H, altHero, body, defs);
 }
 
 // ---------- link pills: bordered, transparent fill, one orange dot ----------
-function pill({ id, label }, mode) {
+function pill({ id, label, alt }, mode) {
   const t = THEMES[mode];
   const w = Math.round(label.length * 7.6 + 34);
   const body = `<rect x=".5" y=".5" width="${w - 1}" height="29" rx="15" fill="none" stroke="${t.edge}" stroke-opacity="${t.edgeA}"/><circle cx="16" cy="15" r="3.5" fill="${ACCENT}"/><text x="27" y="19.5" font-family="${SANS}" font-weight="600" font-size="12.5" fill="${t.ink}">${esc(label)}</text>`;
-  write(`link-${id}-${mode}`, wrap(w, 30, label, body));
+  write(`link-${id}-${mode}`, wrap(w, 30, alt, body));
 }
 
 // ---------- slim section headers with a chevron so they read as expandable ----------
-function header(s, count, mode, mobile) {
+function header(s, count, mode, mobile, chevron = true) {
   const t = THEMES[mode];
   const W = mobile ? 360 : 1200;
   const H = mobile ? 40 : 44;
   const r = mobile ? 12 : 14;
   const x0 = mobile ? 14 : 22;
   const cxr = W - (mobile ? 22 : 30);
-  const body = `<rect width="${W}" height="${H}" rx="${r}" fill="${t.card}"/><rect x="${x0}" y="${H / 2 - 9}" width="3" height="18" rx="1.5" fill="${ACCENT}"/><text x="${x0 + 14}" y="${H / 2 + 5.5}" font-family="${SANS}" font-weight="700" font-size="${mobile ? 14 : 15.5}" fill="${t.ink}">${esc(s.title)}</text>${mobile ? "" : `<text x="${x0 + 14 + s.title.length * 8.6 + 18}" y="${H / 2 + 4.5}" font-family="${SANS}" font-weight="500" font-size="13" fill="${t.mute}">${esc(s.line)}</text>`}<text x="${cxr - 22}" y="${H / 2 + 4}" text-anchor="end" font-family="${MONO}" font-weight="600" font-size="10" letter-spacing="1.2" fill="${t.mute}">${count}</text><path d="M${cxr - 5} ${H / 2 - 2.5}l5 5l5 -5" fill="none" stroke="${ACCENT}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>${edge(W, H, r, t)}`;
-  return wrap(W, H, `${s.title}: ${s.line}`, body);
+  const body = `<rect width="${W}" height="${H}" rx="${r}" fill="${t.card}"/><rect x="${x0}" y="${H / 2 - 9}" width="3" height="18" rx="1.5" fill="${ACCENT}"/><text x="${x0 + 14}" y="${H / 2 + 5.5}" font-family="${SANS}" font-weight="700" font-size="${mobile ? 14 : 15.5}" fill="${t.ink}">${esc(s.title)}</text>${mobile ? "" : `<text x="${x0 + 14 + s.title.length * 8.6 + 18}" y="${H / 2 + 4.5}" font-family="${SANS}" font-weight="500" font-size="13" fill="${t.mute}">${esc(s.line)}</text>`}<text x="${chevron ? cxr - 22 : cxr + 5}" y="${H / 2 + 4}" text-anchor="end" font-family="${MONO}" font-weight="600" font-size="10" letter-spacing="1.2" fill="${t.mute}">${count}</text>${chevron ? `<path d="M${cxr - 5} ${H / 2 - 2.5}l5 5l5 -5" fill="none" stroke="${ACCENT}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>` : ""}${edge(W, H, r, t)}`;
+  return wrap(W, H, altHeader(s), body);
 }
 
 // ---------- tiles: bordered neutral cards, logo in a white well, one orange accent for stars ----------
@@ -228,7 +242,7 @@ function tile(p, frac, mobile, mode) {
   const rx = mobile ? 10 : 14;
   const defs = `<clipPath id="c${id}"><rect x="${m}" y="${m}" width="${w}" height="${h}" rx="${rx}"/></clipPath><filter id="s${id}" x="-5%" y="-10%" width="110%" height="130%"><feDropShadow dx="0" dy="1" stdDeviation=".8" flood-color="#000" flood-opacity=".06"/><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity=".04"/></filter>`;
   const body = `<rect x="${m}" y="${m}" width="${w}" height="${h}" rx="${rx}" fill="${t.card}"${mode === "light" ? ` filter="url(#s${id})"` : ""}/><g clip-path="url(#c${id})">${icon}${tag}${nameSvg}${descSvg}${starsTxt}${chipSvg}</g><rect x="${m + .5}" y="${m + .5}" width="${w - 1}" height="${h - 1}" rx="${rx}" fill="none" stroke="${t.edge}" stroke-opacity="${t.edgeA}"/>`;
-  return wrap(full, H, `${p.name}: ${p.desc}`, body, defs);
+  return wrap(full, H, altTile(p), body, defs);
 }
 
 // ---------- footer ----------
@@ -237,19 +251,27 @@ function footer(mode, mobile) {
   const W = mobile ? 360 : 1200;
   const H = mobile ? 32 : 36;
   const body = `<rect width="${W}" height="${H}" rx="${H / 2.4}" fill="${t.card}"/>${edge(W, H, H / 2.4, t)}<text x="${mobile ? 14 : 22}" y="${H / 2 + 4}" font-family="${MONO}" font-weight="600" font-size="${mobile ? 9 : 10.5}" letter-spacing="1.4" fill="${t.mute}">MADE BY THE GLINR STUDIOS TEAM</text>${mobile ? "" : `<text x="${W - 22}" y="${H / 2 + 4}" text-anchor="end" font-family="${MONO}" font-weight="600" font-size="10.5" letter-spacing="1.4" fill="${t.mute}">GLINR.COM</text>`}`;
-  return wrap(W, H, "Made by the GLINR Studios team", body);
+  return wrap(W, H, altFooter, body);
 }
 
 // ---------- emit ----------
 const projects = config.projects;
+const byName = (n) => projects.find((p) => p.name === n);
+const listed = new Set(projects.flatMap((p) => [p.name, ...(p.repos ?? [])]));
+const more = Object.keys(data.repos).filter((r) => !listed.has(r) && r !== ".github" && r !== "docs").sort();
+const secondary = config.sections.slice(1).flatMap((sec) => sec.names.flatMap((n) => [n, ...(byName(n).repos ?? [])]));
+const moreCount = new Set([...secondary, ...more]).size;
 for (const mode of ["dark", "light"]) {
   for (const mobile of [false, true]) {
     const sfx = `${mode}${mobile ? "-mobile" : ""}`;
     write(`hero-${sfx}`, hero(mode, mobile));
     write(`footer-${sfx}`, footer(mode, mobile));
-    for (const s of config.sections) {
-      const n = s.names.length;
-      write(`header-${s.id}-${sfx}`, header(s, n ? `${n} ${n === 1 ? "REPO" : "REPOS"}` : "DISCORD", mode, mobile));
+    const [first, ...rest] = config.sections;
+    write(`header-products-${sfx}`, header(first, plural(first.names.length, "REPO").replace("REPOs", "REPOS"), mode, mobile));
+    write(`header-more-${sfx}`, header(MORE, plural(moreCount, "REPO").replace("REPOs", "REPOS"), mode, mobile));
+    for (const sec of rest) {
+      const n = sec.names.length;
+      write(`sub-${sec.id}-${sfx}`, header(sec, n ? plural(n, "REPO").replace("REPOs", "REPOS") : "DISCORD", mode, mobile, false));
     }
     for (const row of config.rows) {
       for (const [name, frac] of row) {
@@ -269,37 +291,39 @@ const P = "studio/out";
 const themed = (name, alt, width = "100%") =>
   `<picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="${P}/${name}-dark-mobile.svg" /><source media="(max-width: 640px)" srcset="${P}/${name}-light-mobile.svg" /><source media="(prefers-color-scheme: dark)" srcset="${P}/${name}-dark.svg" /><img src="${P}/${name}-light.svg" alt="${esc(alt)}" width="${width}" /></picture>`;
 const tilePic = (p, frac) =>
-  `<a href="https://github.com/glincker/${p.name}"><picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="${P}/tile-${p.name}-dark-mobile.svg" /><source media="(max-width: 640px)" srcset="${P}/tile-${p.name}-light-mobile.svg" /><source media="(prefers-color-scheme: dark)" srcset="${P}/tile-${p.name}-dark.svg" /><img src="${P}/tile-${p.name}-light.svg" alt="${esc(`${p.name}: ${p.desc}`)}" width="${(frac * 100).toFixed(1)}%" /></picture></a>`;
+  `<a href="https://github.com/glincker/${p.name}"><picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="${P}/tile-${p.name}-dark-mobile.svg" /><source media="(max-width: 640px)" srcset="${P}/tile-${p.name}-light-mobile.svg" /><source media="(prefers-color-scheme: dark)" srcset="${P}/tile-${p.name}-dark.svg" /><img src="${P}/tile-${p.name}-light.svg" alt="${esc(altTile(p))}" width="${(frac * 100).toFixed(1)}%" /></picture></a>`;
 const HREFS = { github: "https://github.com/glincker", glinr: "https://glinr.com", discord: "https://discord.gg/Ar5pcaZB99", thesvg: "https://thesvg.org", levelrail: "https://levelrail.com" };
-const pills = config.links.map((l) => `<a href="${HREFS[l.id]}"><picture><source media="(prefers-color-scheme: dark)" srcset="${P}/link-${l.id}-dark.svg" /><img src="${P}/link-${l.id}-light.svg" alt="${esc(l.label)}" height="30" /></picture></a>`).join(" ");
+const pills = config.links.map((l) => `<a href="${HREFS[l.id]}"><picture><source media="(prefers-color-scheme: dark)" srcset="${P}/link-${l.id}-dark.svg" /><img src="${P}/link-${l.id}-light.svg" alt="${esc(l.alt)}" height="30" /></picture></a>`).join(" ");
 const repoLink = (r) => `<a href="https://github.com/glincker/${r}">${r}</a>`;
-const byName = (n) => projects.find((p) => p.name === n);
-const listed = new Set(projects.flatMap((p) => [p.name, ...(p.repos ?? [])]));
-const more = Object.keys(data.repos).filter((r) => !listed.has(r) && r !== ".github" && r !== "docs").sort();
 const extra = {
   products: `<sub>Packaging: ${byName("ecosystem").repos.map(repoLink).join(", ")}</sub>`,
   research: `<sub>Experiments: ${byName("glinr-whitepapers").repos.slice(1).map(repoLink).join(", ")}</sub>`,
-  community: `<a href="https://discord.gg/Ar5pcaZB99"><img src="https://discord.com/api/guilds/829168897080557579/widget.png?style=banner2" alt="GLINR Discord server widget" width="400" /></a>\n\n<sub>More repositories: ${more.map(repoLink).join(", ")}</sub>`,
+  community: `<a href="https://discord.gg/Ar5pcaZB99"><img src="https://discord.com/api/guilds/829168897080557579/widget.png?style=banner2" alt="GLINR Discord server, members online and invite link" width="400" /></a>`,
 };
-const details = config.sections
-  .map((s) => {
-    const rows = config.rows.filter((row) => row.every(([n]) => s.names.includes(n)));
-    const tiles = rows.map((row) => row.map(([n, f]) => tilePic(byName(n), f)).join("")).join("\n");
-    return `<details${s.id === "products" ? " open" : ""}>\n<summary>${themed(`header-${s.id}`, `${s.title}: ${s.line}`)}</summary>\n\n<div align="center">\n\n${tiles}${tiles ? "\n\n" : ""}${extra[s.id] ?? ""}\n\n</div>\n\n</details>`;
-  })
-  .join("\n");
+const tilesOf = (sec) => config.rows.filter((row) => row.every(([n]) => sec.names.includes(n))).map((row) => row.map(([n, f]) => tilePic(byName(n), f)).join("")).join("\n");
+const block = (sec, name, alt) => `${themed(name, alt)}\n\n${tilesOf(sec)}${tilesOf(sec) ? "\n\n" : ""}${extra[sec.id] ?? ""}`;
+const [first, ...rest] = config.sections;
+const products = `<details open>\n<summary>${themed("header-products", altHeader(first))}</summary>\n\n<div align="center">\n\n${tilesOf(first)}\n\n${extra.products}\n\n</div>\n\n</details>`;
+const secondaryBlocks = rest.map((sec) => block(sec, `sub-${sec.id}`, altHeader(sec))).join("\n\n");
+const moreDetails = `<details>\n<summary>${themed("header-more", altHeader(MORE))}</summary>\n\n<div align="center">\n\n${secondaryBlocks}\n\n<sub>Also on GitHub: ${more.map(repoLink).join(", ")}</sub>\n\n</div>\n\n</details>`;
+const L = (r, label) => `<a href="https://github.com/glincker/${r}">${label}</a>`;
+const intro = `<sub>GLINR Studios builds open source developer tools: ${L("levelrail", "Levelrail")} for self-hosted deploys, ${L("thesvg", "theSVG")} the open SVG brand library, ${L("theauth", "theAuth")} for AI agent and human auth, ${L("stacklit", "Stacklit")} for codebase context, and more. Free, open source, MIT.</sub>`;
 const readme = `<div align="center">
 
-<a href="https://glinr.com">${themed("hero", `GLINR Studios, open source developer tools. ${data.stars} GitHub stars across ${data.count} public repositories`)}</a><br>
+<a href="https://glinr.com">${themed("hero", altHero)}</a><br>
 ${pills}
+
+${intro}
 
 </div>
 
-${details}
+${products}
+
+${moreDetails}
 
 <div align="center">
 
-${themed("footer", "Made by the GLINR Studios team")}
+${themed("footer", altFooter)}
 
 <sub>Logos from <a href="https://thesvg.org">theSVG</a></sub>
 

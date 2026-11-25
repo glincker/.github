@@ -6,23 +6,28 @@
  "links": [
   {
    "id": "glinr",
-   "label": "glinr.com"
+   "label": "glinr.com",
+   "alt": "GLINR Studios website, glinr.com"
   },
   {
    "id": "discord",
-   "label": "Discord"
+   "label": "Discord",
+   "alt": "GLINR Discord community, join the chat"
   },
   {
    "id": "github",
-   "label": "GitHub org"
+   "label": "GitHub org",
+   "alt": "GLINR Studios on GitHub, all open source repositories"
   },
   {
    "id": "thesvg",
-   "label": "thesvg.org"
+   "label": "thesvg.org",
+   "alt": "theSVG, the open SVG brand library, thesvg.org"
   },
   {
    "id": "levelrail",
-   "label": "levelrail.com"
+   "label": "levelrail.com",
+   "alt": "Levelrail, self-hosted deploys on your own servers, levelrail.com"
   }
  ],
  "sections": [
