@@ -11,6 +11,10 @@
    "stars": 3045,
    "lang": "TypeScript"
   },
+  ".github": {
+   "stars": 1,
+   "lang": ""
+  },
   "levelrail": {
    "stars": 239,
    "lang": "Go"
@@ -93,10 +97,6 @@
   },
   "ableton-skills": {
    "stars": 55,
-   "lang": ""
-  },
-  ".github": {
-   "stars": 1,
    "lang": ""
   },
   "homebrew-thesvg": {

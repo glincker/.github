@@ -1,43 +1,344 @@
 {
-  "tagline": ["Open source tools for the people who build software.", "Deploy, auth, icons and AI context, all in the open."],
-  "links": [
-    { "id": "glinr", "label": "glinr.com", "color": "#F97316" },
-    { "id": "discord", "label": "Discord", "color": "#5865F2" },
-    { "id": "github", "label": "GitHub org", "color": "#A78BFA" },
-    { "id": "thesvg", "label": "thesvg.org", "color": "#FF7A1A" },
-    { "id": "levelrail", "label": "levelrail.com", "color": "#8B5CF6" }
+ "tagline": [
+  "Open source tools for the people who build software.",
+  "Deploy, auth, icons and AI context, all in the open."
+ ],
+ "links": [
+  {
+   "id": "glinr",
+   "label": "glinr.com",
+   "color": "#F97316"
+  },
+  {
+   "id": "discord",
+   "label": "Discord",
+   "color": "#5865F2"
+  },
+  {
+   "id": "github",
+   "label": "GitHub org",
+   "color": "#A78BFA"
+  },
+  {
+   "id": "thesvg",
+   "label": "thesvg.org",
+   "color": "#FF7A1A"
+  },
+  {
+   "id": "levelrail",
+   "label": "levelrail.com",
+   "color": "#8B5CF6"
+  }
+ ],
+ "sections": [
+  {
+   "id": "products",
+   "title": "Products",
+   "line": "Things people deploy, sign in with and ship",
+   "color": "#9A8FE0",
+   "names": [
+    "levelrail",
+    "thesvg",
+    "theauth",
+    "ecosystem"
+   ]
+  },
+  {
+   "id": "tools",
+   "title": "Developer tools",
+   "line": "Small sharp tools for the daily loop",
+   "color": "#D8B94E",
+   "names": [
+    "stacklit",
+    "sslx",
+    "gitincognitor",
+    "featuredrop"
+   ]
+  },
+  {
+   "id": "libs",
+   "title": "Libraries",
+   "line": "Drop-in packages for your own app",
+   "color": "#6C9BE0",
+   "names": [
+    "glinui",
+    "glin-profanity",
+    "theauth-go"
+   ]
+  },
+  {
+   "id": "curated",
+   "title": "Curated and skills",
+   "line": "Lists, skills and marketplaces",
+   "color": "#B88AD9",
+   "names": [
+    "awesome-selfhosted-ai",
+    "claude-code-marketplace",
+    "ableton-skills"
+   ]
+  },
+  {
+   "id": "research",
+   "title": "Research",
+   "line": "Whitepapers with the experiments in the open",
+   "color": "#8A92DC",
+   "names": [
+    "glinr-whitepapers"
+   ]
+  },
+  {
+   "id": "community",
+   "title": "Community",
+   "line": "Chat with the team and other builders",
+   "color": "#7C86E8",
+   "names": []
+  }
+ ],
+ "rows": [
+  [
+   [
+    "levelrail",
+    0.667
+   ],
+   [
+    "thesvg",
+    0.333
+   ]
   ],
-  "sections": [
-    { "id": "products", "title": "Products", "line": "Things people deploy, sign in with and ship", "color": "#8B5CF6", "names": ["levelrail", "thesvg", "theauth", "ecosystem"] },
-    { "id": "tools", "title": "Developer tools", "line": "Small sharp tools for the daily loop", "color": "#FFD21F", "names": ["stacklit", "sslx", "gitincognitor", "featuredrop"] },
-    { "id": "libs", "title": "Libraries", "line": "Drop-in packages for your own app", "color": "#38BDF8", "names": ["glinui", "glin-profanity", "theauth-go"] },
-    { "id": "curated", "title": "Curated and skills", "line": "Lists, skills and marketplaces", "color": "#A855F7", "names": ["awesome-selfhosted-ai", "claude-code-marketplace", "ableton-skills"] },
-    { "id": "research", "title": "Research", "line": "Whitepapers with the experiments in the open", "color": "#818CF8", "names": ["glinr-whitepapers"] }
+  [
+   [
+    "theauth",
+    0.333
+   ],
+   [
+    "ecosystem",
+    0.667
+   ]
   ],
-  "rows": [
-    [["levelrail", 0.667], ["thesvg", 0.333]],
-    [["theauth", 0.333], ["ecosystem", 0.667]],
-    [["stacklit", 0.667], ["sslx", 0.333]],
-    [["gitincognitor", 0.333], ["featuredrop", 0.667]],
-    [["glinui", 0.333], ["glin-profanity", 0.333], ["theauth-go", 0.333]],
-    [["awesome-selfhosted-ai", 0.333], ["claude-code-marketplace", 0.333], ["ableton-skills", 0.333]],
-    [["glinr-whitepapers", 1]]
+  [
+   [
+    "stacklit",
+    0.667
+   ],
+   [
+    "sslx",
+    0.333
+   ]
   ],
-  "projects": [
-    { "name": "levelrail", "logo": "levelrail", "mono": "L", "wide": true, "fill": "#8B5CF6", "fill2": "#4C1D95", "fg": "#FFFFFF", "desc": "Git push to production on your own servers. One Go binary, rollbacks, previews, HTTPS." },
-    { "name": "thesvg", "logo": "thesvg", "mono": "S", "fill": "#F97316", "fill2": "#9A3412", "fg": "#FFFFFF", "desc": "The open SVG brand library: 7,600+ brand logos and cloud icons. Free, MIT." },
-    { "name": "theauth", "logo": "theauth", "mono": "A", "fill": "#0891B2", "fill2": "#0C4A6E", "fg": "#FFFFFF", "desc": "Auth for AI agents and humans. MCP OAuth 2.1, delegation and audit. MIT." },
-    { "name": "ecosystem", "mono": "+", "wide": true, "tag": "PACKAGING", "repos": ["homebrew-tap", "scoop-bucket", "deploy-action", "terraform-provider-levelrail", "homebrew-thesvg"], "chips": ["homebrew", "scoop", "deploy-action", "terraform", "thesvg tap"], "fill": "#4F46E5", "fill2": "#1E1B4B", "fg": "#FFFFFF", "desc": "Taps, a Terraform provider and a deploy Action for Levelrail and theSVG." },
-    { "name": "stacklit", "mono": "St", "wide": true, "fill": "#FACC15", "fill2": "#A16207", "fg": "#1C1500", "desc": "Maps your repo once so AI agents stop re-reading it. Free, MIT, one Go binary." },
-    { "name": "sslx", "mono": "ssl", "fill": "#E5484D", "fill2": "#7F1D1D", "fg": "#FFFFFF", "desc": "A fast, modern alternative to OpenSSL's CLI. Inspect, grade and manage certificates." },
-    { "name": "gitincognitor", "mono": "gi", "fill": "#EC4899", "fill2": "#831843", "fg": "#FFFFFF", "desc": "Private notes inside any git repo, hidden from it and backed up to your own remote." },
-    { "name": "featuredrop", "mono": "fd", "wide": true, "fill": "#10B981", "fill2": "#064E3B", "fg": "#FFFFFF", "desc": "Open-source product adoption toolkit: announcements, tours and checklists. 3 kB core." },
-    { "name": "glinui", "mono": "Gu", "fill": "#3B82F6", "fill2": "#1E3A8A", "fg": "#FFFFFF", "desc": "Liquid Glass UI components for React. 50+ primitives on Radix UI and Tailwind." },
-    { "name": "glin-profanity", "mono": "Gp", "fill": "#A3E635", "fill2": "#3F6212", "fg": "#14210A", "desc": "ML-powered profanity filter that resists leetspeak and Unicode tricks. 23 languages." },
-    { "name": "theauth-go", "mono": "Go", "fill": "#14B8A6", "fill2": "#134E4A", "fg": "#FFFFFF", "desc": "Self-hosted Go auth library. OAuth 2.1, passkeys, SAML, SCIM and MCP authorization." },
-    { "name": "awesome-selfhosted-ai", "mono": "AI", "fill": "#A855F7", "fill2": "#581C87", "fg": "#FFFFFF", "desc": "Curated self-hosted open-source AI: local LLMs, agents, MCP servers and RAG." },
-    { "name": "claude-code-marketplace", "mono": "Cc", "fill": "#E11D48", "fill2": "#881337", "fg": "#FFFFFF", "desc": "Community marketplace of specialized agents for the full software lifecycle." },
-    { "name": "ableton-skills", "mono": "Ab", "tag": "SKILLS", "fill": "#0EA5E9", "fill2": "#075985", "fg": "#FFFFFF", "desc": "Agent skills for Ableton Live producers. Works with Claude Code, Cursor and Codex." },
-    { "name": "glinr-whitepapers", "mono": "WP", "wide": true, "tag": "RESEARCH", "repos": ["glinr-whitepapers", "wp-2026-101-backup-restore-testing", "wp-2026-301-dns-failover-ttl-testing", "wp-2026-501-zero-downtime-migrations-testing"], "chips": ["wp-2026-101", "wp-2026-301", "wp-2026-501"], "fill": "#6366F1", "fill2": "#312E81", "fg": "#FFFFFF", "desc": "Index of GLINR Studios whitepapers, plus the experiment repos behind each claim." }
+  [
+   [
+    "gitincognitor",
+    0.333
+   ],
+   [
+    "featuredrop",
+    0.667
+   ]
+  ],
+  [
+   [
+    "glinui",
+    0.333
+   ],
+   [
+    "glin-profanity",
+    0.333
+   ],
+   [
+    "theauth-go",
+    0.333
+   ]
+  ],
+  [
+   [
+    "awesome-selfhosted-ai",
+    0.333
+   ],
+   [
+    "claude-code-marketplace",
+    0.333
+   ],
+   [
+    "ableton-skills",
+    0.333
+   ]
+  ],
+  [
+   [
+    "glinr-whitepapers",
+    1
+   ]
   ]
+ ],
+ "projects": [
+  {
+   "name": "levelrail",
+   "fill": "#9A8FE0",
+   "desc": "Git push to production on your own servers. One Go binary, rollbacks, previews, HTTPS.",
+   "logo": {
+    "file": "levelrail-mono",
+    "tint": true
+   }
+  },
+  {
+   "name": "thesvg",
+   "fill": "#E0925A",
+   "desc": "The open SVG brand library: 7,600+ brand logos and cloud icons. Free, MIT.",
+   "logo": {
+    "file": "thesvg-dark",
+    "tint": false
+   }
+  },
+  {
+   "name": "theauth",
+   "fill": "#5BB5C9",
+   "desc": "Auth for AI agents and humans. MCP OAuth 2.1, delegation and audit. MIT.",
+   "logo": {
+    "file": "theauth-dark",
+    "tint": false
+   }
+  },
+  {
+   "name": "ecosystem",
+   "repos": [
+    "homebrew-tap",
+    "scoop-bucket",
+    "deploy-action",
+    "terraform-provider-levelrail",
+    "homebrew-thesvg"
+   ],
+   "chips": [
+    "homebrew",
+    "scoop",
+    "deploy-action",
+    "terraform",
+    "thesvg tap"
+   ],
+   "fill": "#8C93D9",
+   "desc": "Taps, a Terraform provider and a deploy Action for Levelrail and theSVG.",
+   "logos": [
+    {
+     "file": "homebrew-mono",
+     "tint": true
+    },
+    {
+     "file": "terraform-mono",
+     "tint": true
+    },
+    {
+     "file": "github-actions-default"
+    }
+   ]
+  },
+  {
+   "name": "stacklit",
+   "fill": "#D8B94E",
+   "desc": "Maps your repo once so AI agents stop re-reading it. Free, MIT, one Go binary.",
+   "logo": {
+    "file": "stacklit-dark",
+    "tint": false
+   }
+  },
+  {
+   "name": "sslx",
+   "fill": "#D9777A",
+   "desc": "A fast, modern alternative to OpenSSL's CLI. Inspect, grade and manage certificates.",
+   "logo": {
+    "file": "openssl-mono",
+    "tint": true
+   }
+  },
+  {
+   "name": "gitincognitor",
+   "fill": "#D486A9",
+   "desc": "Private notes inside any git repo, hidden from it and backed up to your own remote.",
+   "logo": {
+    "file": "git-default",
+    "tint": false
+   }
+  },
+  {
+   "name": "featuredrop",
+   "fill": "#5DBB9A",
+   "desc": "Open-source product adoption toolkit: announcements, tours and checklists. 3 kB core.",
+   "logo": {
+    "file": "featuredrop-default",
+    "tint": false
+   }
+  },
+  {
+   "name": "glinui",
+   "fill": "#6C9BE0",
+   "desc": "Liquid Glass UI components for React. 50+ primitives on Radix UI and Tailwind.",
+   "logo": {
+    "file": "glinui.png",
+    "tint": false
+   }
+  },
+  {
+   "name": "glin-profanity",
+   "fill": "#A8C968",
+   "desc": "ML-powered profanity filter that resists leetspeak and Unicode tricks. 23 languages.",
+   "logo": {
+    "file": "tensorflow-dark",
+    "tint": false
+   }
+  },
+  {
+   "name": "theauth-go",
+   "fill": "#5BB8AD",
+   "desc": "Self-hosted Go auth library. OAuth 2.1, passkeys, SAML, SCIM and MCP authorization.",
+   "logo": {
+    "file": "theauth-dark",
+    "tint": false
+   }
+  },
+  {
+   "name": "awesome-selfhosted-ai",
+   "fill": "#B88AD9",
+   "desc": "Curated self-hosted open-source AI: local LLMs, agents, MCP servers and RAG.",
+   "logo": {
+    "file": "ollama-dark",
+    "tint": false
+   }
+  },
+  {
+   "name": "claude-code-marketplace",
+   "fill": "#D9788F",
+   "desc": "Community marketplace of specialized agents for the full software lifecycle.",
+   "logo": {
+    "file": "claude-code-default",
+    "tint": false
+   }
+  },
+  {
+   "name": "ableton-skills",
+   "fill": "#6AB0D9",
+   "desc": "Agent skills for Ableton Live producers. Works with Claude Code, Cursor and Codex.",
+   "logo": {
+    "file": "glinr-dark",
+    "tint": false
+   }
+  },
+  {
+   "name": "glinr-whitepapers",
+   "repos": [
+    "glinr-whitepapers",
+    "wp-2026-101-backup-restore-testing",
+    "wp-2026-301-dns-failover-ttl-testing",
+    "wp-2026-501-zero-downtime-migrations-testing"
+   ],
+   "chips": [
+    "wp-2026-101",
+    "wp-2026-301",
+    "wp-2026-501"
+   ],
+   "fill": "#8A92DC",
+   "desc": "Index of GLINR Studios whitepapers, plus the experiment repos behind each claim.",
+   "logo": {
+    "file": "glinr-dark",
+    "tint": false
+   }
+  }
+ ]
 }

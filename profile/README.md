@@ -1,9 +1,7 @@
 <div align="center">
 
-<a href="https://glinr.com"><picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="studio/out/hero-dark-mobile.svg" /><source media="(max-width: 640px)" srcset="studio/out/hero-light-mobile.svg" /><source media="(prefers-color-scheme: dark)" srcset="studio/out/hero-dark.svg" /><img src="studio/out/hero-light.svg" alt="GLINR Studios: open source tools for the people who build software" width="100%" /></picture></a><br>
-<picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="studio/out/numbers-dark-mobile.svg" /><source media="(max-width: 640px)" srcset="studio/out/numbers-light-mobile.svg" /><source media="(prefers-color-scheme: dark)" srcset="studio/out/numbers-dark.svg" /><img src="studio/out/numbers-light.svg" alt="4007 GitHub stars, 33 public repositories, thesvg leads with 3045 stars" width="100%" /></picture><br>
-
-<a href="https://glinr.com"><img src="studio/out/link-glinr.svg" alt="glinr.com" height="36" /></a> <a href="https://discord.gg/Ar5pcaZB99"><img src="studio/out/link-discord.svg" alt="Discord" height="36" /></a> <a href="https://github.com/glincker"><img src="studio/out/link-github.svg" alt="GitHub org" height="36" /></a> <a href="https://thesvg.org"><img src="studio/out/link-thesvg.svg" alt="thesvg.org" height="36" /></a> <a href="https://levelrail.com"><img src="studio/out/link-levelrail.svg" alt="levelrail.com" height="36" /></a>
+<a href="https://glinr.com"><picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="studio/out/hero-dark-mobile.svg" /><source media="(max-width: 640px)" srcset="studio/out/hero-light-mobile.svg" /><source media="(prefers-color-scheme: dark)" srcset="studio/out/hero-dark.svg" /><img src="studio/out/hero-light.svg" alt="GLINR Studios, open source developer tools. 4007 GitHub stars across 33 public repositories" width="100%" /></picture></a><br>
+<a href="https://glinr.com"><img src="studio/out/link-glinr.svg" alt="glinr.com" height="30" /></a> <a href="https://discord.gg/Ar5pcaZB99"><img src="studio/out/link-discord.svg" alt="Discord" height="30" /></a> <a href="https://github.com/glincker"><img src="studio/out/link-github.svg" alt="GitHub org" height="30" /></a> <a href="https://thesvg.org"><img src="studio/out/link-thesvg.svg" alt="thesvg.org" height="30" /></a> <a href="https://levelrail.com"><img src="studio/out/link-levelrail.svg" alt="levelrail.com" height="30" /></a>
 
 </div>
 
@@ -20,8 +18,7 @@
 </div>
 
 </details>
-
-<details open>
+<details>
 <summary><picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="studio/out/header-tools-dark-mobile.svg" /><source media="(max-width: 640px)" srcset="studio/out/header-tools-light-mobile.svg" /><source media="(prefers-color-scheme: dark)" srcset="studio/out/header-tools-dark.svg" /><img src="studio/out/header-tools-light.svg" alt="Developer tools: Small sharp tools for the daily loop" width="100%" /></picture></summary>
 
 <div align="center">
@@ -34,8 +31,7 @@
 </div>
 
 </details>
-
-<details open>
+<details>
 <summary><picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="studio/out/header-libs-dark-mobile.svg" /><source media="(max-width: 640px)" srcset="studio/out/header-libs-light-mobile.svg" /><source media="(prefers-color-scheme: dark)" srcset="studio/out/header-libs-dark.svg" /><img src="studio/out/header-libs-light.svg" alt="Libraries: Drop-in packages for your own app" width="100%" /></picture></summary>
 
 <div align="center">
@@ -47,8 +43,7 @@
 </div>
 
 </details>
-
-<details open>
+<details>
 <summary><picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="studio/out/header-curated-dark-mobile.svg" /><source media="(max-width: 640px)" srcset="studio/out/header-curated-light-mobile.svg" /><source media="(prefers-color-scheme: dark)" srcset="studio/out/header-curated-dark.svg" /><img src="studio/out/header-curated-light.svg" alt="Curated and skills: Lists, skills and marketplaces" width="100%" /></picture></summary>
 
 <div align="center">
@@ -60,8 +55,7 @@
 </div>
 
 </details>
-
-<details open>
+<details>
 <summary><picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="studio/out/header-research-dark-mobile.svg" /><source media="(max-width: 640px)" srcset="studio/out/header-research-light-mobile.svg" /><source media="(prefers-color-scheme: dark)" srcset="studio/out/header-research-dark.svg" /><img src="studio/out/header-research-light.svg" alt="Research: Whitepapers with the experiments in the open" width="100%" /></picture></summary>
 
 <div align="center">
@@ -73,14 +67,23 @@
 </div>
 
 </details>
+<details>
+<summary><picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="studio/out/header-community-dark-mobile.svg" /><source media="(max-width: 640px)" srcset="studio/out/header-community-light-mobile.svg" /><source media="(prefers-color-scheme: dark)" srcset="studio/out/header-community-dark.svg" /><img src="studio/out/header-community-light.svg" alt="Community: Chat with the team and other builders" width="100%" /></picture></summary>
 
 <div align="center">
 
-<sub>Also on GitHub: <a href="https://github.com/glincker/commitweave">commitweave</a>, <a href="https://github.com/glincker/geo-audit-action">geo-audit-action</a>, <a href="https://github.com/glincker/geokit">geokit</a>, <a href="https://github.com/glincker/glinrdock">glinrdock</a>, <a href="https://github.com/glincker/glinweb">glinweb</a>, <a href="https://github.com/glincker/json-to-typescript">json-to-typescript</a>, <a href="https://github.com/glincker/palrun">palrun</a>, <a href="https://github.com/glincker/sentinel">sentinel</a>, <a href="https://github.com/glincker/stacklit-action">stacklit-action</a></sub>
-
-<a href="https://discord.gg/Ar5pcaZB99"><picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="studio/out/community-dark-mobile.svg" /><source media="(max-width: 640px)" srcset="studio/out/community-light-mobile.svg" /><source media="(prefers-color-scheme: dark)" srcset="studio/out/community-dark.svg" /><img src="studio/out/community-light.svg" alt="Join the GLINR Discord community" width="100%" /></picture></a><br>
 <a href="https://discord.gg/Ar5pcaZB99"><img src="https://discord.com/api/guilds/829168897080557579/widget.png?style=banner2" alt="GLINR Discord server widget" width="400" /></a>
 
+<sub>More repositories: <a href="https://github.com/glincker/commitweave">commitweave</a>, <a href="https://github.com/glincker/geo-audit-action">geo-audit-action</a>, <a href="https://github.com/glincker/geokit">geokit</a>, <a href="https://github.com/glincker/glinrdock">glinrdock</a>, <a href="https://github.com/glincker/glinweb">glinweb</a>, <a href="https://github.com/glincker/json-to-typescript">json-to-typescript</a>, <a href="https://github.com/glincker/palrun">palrun</a>, <a href="https://github.com/glincker/sentinel">sentinel</a>, <a href="https://github.com/glincker/stacklit-action">stacklit-action</a></sub>
+
+</div>
+
+</details>
+
+<div align="center">
+
 <picture><source media="(max-width: 640px) and (prefers-color-scheme: dark)" srcset="studio/out/footer-dark-mobile.svg" /><source media="(max-width: 640px)" srcset="studio/out/footer-light-mobile.svg" /><source media="(prefers-color-scheme: dark)" srcset="studio/out/footer-dark.svg" /><img src="studio/out/footer-light.svg" alt="Made by the GLINR Studios team" width="100%" /></picture>
+
+<sub>Logos from <a href="https://thesvg.org">theSVG</a></sub>
 
 </div>
