@@ -1,0 +1,143 @@
+{
+ "updated": "2026-11-25",
+ "count": 33,
+ "stars": 4007,
+ "top": {
+  "name": "thesvg",
+  "stars": 3045
+ },
+ "repos": {
+  ".github": {
+   "stars": 1,
+   "lang": ""
+  },
+  "thesvg": {
+   "stars": 3045,
+   "lang": "TypeScript"
+  },
+  "levelrail": {
+   "stars": 239,
+   "lang": "Go"
+  },
+  "sslx": {
+   "stars": 157,
+   "lang": "Rust"
+  },
+  "featuredrop": {
+   "stars": 14,
+   "lang": "TypeScript"
+  },
+  "scoop-bucket": {
+   "stars": 0,
+   "lang": ""
+  },
+  "homebrew-tap": {
+   "stars": 1,
+   "lang": "Ruby"
+  },
+  "gitincognitor": {
+   "stars": 0,
+   "lang": "Go"
+  },
+  "theauth-go": {
+   "stars": 14,
+   "lang": "Go"
+  },
+  "stacklit": {
+   "stars": 132,
+   "lang": "HTML"
+  },
+  "theauth": {
+   "stars": 24,
+   "lang": "TypeScript"
+  },
+  "terraform-provider-levelrail": {
+   "stars": 1,
+   "lang": "Go"
+  },
+  "deploy-action": {
+   "stars": 1,
+   "lang": "Shell"
+  },
+  "glin-profanity": {
+   "stars": 70,
+   "lang": "TypeScript"
+  },
+  "glinr-whitepapers": {
+   "stars": 1,
+   "lang": "JavaScript"
+  },
+  "wp-2026-501-zero-downtime-migrations-testing": {
+   "stars": 0,
+   "lang": "Python"
+  },
+  "wp-2026-301-dns-failover-ttl-testing": {
+   "stars": 1,
+   "lang": "Python"
+  },
+  "wp-2026-101-backup-restore-testing": {
+   "stars": 1,
+   "lang": "Python"
+  },
+  "awesome-selfhosted-ai": {
+   "stars": 137,
+   "lang": "JavaScript"
+  },
+  "glinui": {
+   "stars": 42,
+   "lang": "TypeScript"
+  },
+  "docs": {
+   "stars": 0,
+   "lang": "MDX"
+  },
+  "claude-code-marketplace": {
+   "stars": 38,
+   "lang": "Shell"
+  },
+  "ableton-skills": {
+   "stars": 55,
+   "lang": ""
+  },
+  "homebrew-thesvg": {
+   "stars": 1,
+   "lang": "Ruby"
+  },
+  "stacklit-action": {
+   "stars": 0,
+   "lang": ""
+  },
+  "geokit": {
+   "stars": 18,
+   "lang": "TypeScript"
+  },
+  "geo-audit-action": {
+   "stars": 1,
+   "lang": ""
+  },
+  "sentinel": {
+   "stars": 2,
+   "lang": "Svelte"
+  },
+  "palrun": {
+   "stars": 2,
+   "lang": "Rust"
+  },
+  "json-to-typescript": {
+   "stars": 7,
+   "lang": "TypeScript"
+  },
+  "glinrdock": {
+   "stars": 1,
+   "lang": "Shell"
+  },
+  "commitweave": {
+   "stars": 1,
+   "lang": "TypeScript"
+  },
+  "glinweb": {
+   "stars": 0,
+   "lang": "TypeScript"
+  }
+ }
+}
